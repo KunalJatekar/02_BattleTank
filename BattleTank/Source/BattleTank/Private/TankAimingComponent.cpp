@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
+#include "TankBarrel.h"
 #include "TankAimingComponent.h"
 #include "GameFramework/Actor.h"
 #include "Components/StaticMeshComponent.h"
@@ -16,7 +17,7 @@ UTankAimingComponent::UTankAimingComponent()
 	// ...
 }
 
-void UTankAimingComponent::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
+void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	Barrel = BarrelToSet;
 }
@@ -63,4 +64,6 @@ void UTankAimingComponent::MoveBarrelToward(FVector AimDirection)
 
 	// Move the barrel right amount this frame
 	// Give a max elevation speed, and the frame time
+
+	Barrel->Elevate(DeltaRotator.Pitch);
 }
