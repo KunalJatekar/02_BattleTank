@@ -20,7 +20,7 @@ public:
 
 private:
 	UPROPERTY(EditAnywhere, Category = BarrelProperty)
-	float MaxDegreePerSecond = 5.0f; // Sensible value set
+	float MaxDegreePerSecond = 10.0f; // Sensible value set
 
 	UPROPERTY(EditAnywhere, Category = BarrelProperty)
 	float MaxElevationDegree = 40.0f;
