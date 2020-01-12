@@ -6,9 +6,6 @@
 #include "AIController.h"
 #include "TankAIController.generated.h"
 
-///Forward declaration
-class ATank;
-
 /**
  * 
  */
@@ -23,4 +20,9 @@ public:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+private:
+
+	float AcceptanceRadious = 3000;
+
 };
