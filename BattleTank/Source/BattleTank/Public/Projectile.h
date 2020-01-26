@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "PhysicsEngine/RadialForceComponent.h"
 #include "Projectile.generated.h"
 
 UCLASS()
@@ -17,6 +18,10 @@ public:
 	AProjectile();
 
 protected:
+
+	UPROPERTY(VisibleAnywhere, Category = "Setup")
+	float DestroyDelay = 10.0f;
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -31,6 +36,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Component")
 	UParticleSystemComponent* ImpactBlase = nullptr;
 
+	UPROPERTY(VisibleAnywhere, Category = "Component")
+	URadialForceComponent* ExplosionForce = nullptr;
+
 public:
 
 	void LaunchProjectile(float Speed);
@@ -39,5 +47,7 @@ private:
 
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
+
+	void OnTimerExpire();
 
 };
