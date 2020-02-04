@@ -60,7 +60,7 @@ protected:
 private:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
-	float LaunchSpeed = 20000; // Set the sensible value of 1000 m/s
+	float LaunchSpeed = 8000; // Set the sensible value of 1000 m/s
 
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float ReloadTimeInSeconds = 3;
